@@ -7,3 +7,11 @@
    docker-compose up --build
    ```
 3. Приложение доступно по адресу: http://localhost:8080
+
+
+4. Если не запускается может помоччь следующая конфигурация Docker Engine
+```{
+  "registry-mirrors": [
+    "https://timeweb.cloud"
+  ]
+}```
