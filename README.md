@@ -10,8 +10,10 @@
 
 
 4. Если не запускается может помоччь следующая конфигурация Docker Engine
-```{
+```
+{
   "registry-mirrors": [
     "https://timeweb.cloud"
   ]
-}```
+}
+```
