@@ -1,11 +1,10 @@
 services:
   db:
-    image: mysql:8.0
+    # Заменяем стандартный mysql:8.0 на зеркало, чтобы обойти блокировку
+    image: m.daocloud.io/docker.io/library/mysql:8.0
     container_name: mysql_db_laba8
     environment:
-      # Главный пароль (он же будет использоваться для подключения)
       MYSQL_ROOT_PASSWORD: root
-      # База данных, которая будет создана автоматически
       MYSQL_DATABASE: users
     ports:
       - "3307:3306"
@@ -24,7 +23,6 @@ services:
     ports:
       - "8080:8080"
     environment:
-      # Внутри сети Docker мы по-прежнему обращаемся к db:3306
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/users?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
